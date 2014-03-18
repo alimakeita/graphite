@@ -4,20 +4,12 @@ class graphite {
 	include graphite::web
 	include graphite::whisper
 	include graphite::carbon
+  include graphite::graphite_packages
 }
 
 class graphite::web {
   package {'bitmap':
     ensure => present,
-  }
-
-  package {'bitmap':
-      ensure => present,
-      require => Package ["graphite"]
-  }
-
-  package {'graphite-web':
-      ensure => present,
   }
 
   package {'graphite':

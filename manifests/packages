@@ -1,0 +1,13 @@
+class graphite::pack-graphite {
+      
+           $packagesToBeInstalled = [ "python-cairo", "python-django", "python-django-tagging", "python-twisted", "python-zope.interface", "fontconfig", "libapache2-mod-wsgi", "python-pysqlite2", "python-simplejson", "git-core", "python-rrdtool", "python-devel.x86_64", "mod_wsgi.x86_64", "mod_python.x86_64", "python-sqlite2.x86_64", "bitmap.x86_64 pycairo.x86_64", "python-zope-interface.x86_64","python-simplejson.x86_64", "django-tagging.noarch", "python-pip.noarch", "python-twisted-web.x86_64", "bitmap", "bitmap-fonts", "gcc-c++.x86_64", "openssl-devel.x86_64 git.x86_64 make.x86_64",]
+       
+      
+      
+      		package { $packagesToBeInstalled:
+            	ensure => latest,
+            	provider => 'yum',
+         }
+      
+      
+      }

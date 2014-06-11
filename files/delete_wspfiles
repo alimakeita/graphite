@@ -1,0 +1,32 @@
+#script to stop statsd, carbon-cache, carbon-aggregator processes and wsp files in /opt/graphite/storage/whisper/
+
+#!/bin/bash
+
+whisperdir=/opt/graphite/storage/whisper/
+
+#stop statsd service
+
+sudo /etc/init.d/statsd stop
+
+#stop carbon-cache service
+sudo /etc/init.d/carbon-cache stop
+
+#stop carbon-aggregator service
+sudo /etc/init.d/carbon-aggregator stop
+
+#delete all the wsp files
+cd ${whisperdir}
+rm -rf stats*
+
+sleep 10s;
+
+#start the statsd servive
+sudo /etc/init.d/statsd start
+
+#start the carbon-cache service
+sudo /etc/init.d/carbon-cache start
+
+#start carbon-aggregator service
+sudo /etc/init.d/carbon-aggregator start
+
+echo "You are Done"
